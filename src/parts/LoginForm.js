@@ -1,10 +1,53 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 
-export default function LoginForm() {
-  const [Email, setEmail] = useState(() => "");
-  const [Password, setPassword] = useState(() => "");
+import users from "constants/api/users";
+
+import { setAuthorizationHeader } from "configs/axios";
+
+function LoginForm({ history }) {
+  const [email, setEmail] = useState(() => "");
+  const [password, setPassword] = useState(() => "");
   function submit(e) {
     e.preventDefault();
+    users
+      .login({ email, password })
+      .then((res) => {
+        setAuthorizationHeader(res.data.token);
+        users.details().then((detail) => {
+          console.log(detail.data.name);
+          const production =
+            process.env.REACT_APP_FRONTPAGE_URL === "http://localhost:1000"
+              ? "Domain = localhost:1000"
+              : "";
+          localStorage.setItem(
+            "BWAMICRO:token",
+            JSON.stringify({
+              ...res.data,
+              email: email,
+            })
+          );
+
+          const redirect = localStorage.getItem("BWAMICRO:redirect");
+          const userCookie = {
+            name: detail.data.name,
+            thumbnail: detail.data.avatar,
+          };
+
+          console.log(userCookie);
+
+          const expires = new Date(
+            new Date().getTime() + 7 * 24 * 60 * 60 * 1000
+          );
+
+          document.cookie = `BWAMICRO:user=${JSON.stringify(
+            userCookie
+          )}; expires=${expires.toUTCString()}, path:/, ${production}`;
+
+          history.push(redirect || "/");
+        });
+      })
+      .catch((err) => {});
   }
   return (
     <div className="flex justify-center items-center pb-24">
@@ -22,7 +65,7 @@ export default function LoginForm() {
               type="email"
               onChange={(event) => setEmail(event.target.value)}
               className="bg-white focus:outline-none border w-full px-6 py-3 w-1/2 border-gray-600 focus:border-teal-500"
-              value={Email}
+              value={email}
               placeholder="Your Email Address"
             />
           </div>
@@ -34,7 +77,7 @@ export default function LoginForm() {
               type="password"
               onChange={(event) => setPassword(event.target.value)}
               className="bg-white focus:outline-none border w-full px-6 py-3 w-1/2 border-gray-600 focus:border-teal-500"
-              value={Password}
+              value={password}
               placeholder="Your Password"
             />
           </div>
@@ -75,3 +118,4 @@ export default function LoginForm() {
     </div>
   );
 }
+export default withRouter(LoginForm);

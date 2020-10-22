@@ -11,31 +11,35 @@ export default function Footer() {
           <h6 className="text-white">Company</h6>
           <ul className="mt-4">
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  API Developer
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                API Developer
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Carrer
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                Carrer
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Our Story
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                Our Story
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  New Soon
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                New Soon
               </Link>
             </li>
           </ul>
@@ -44,31 +48,35 @@ export default function Footer() {
           <h6 className="text-white">Student</h6>
           <ul className="mt-4">
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Get Scholarship
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                Get Scholarship
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Our Pathskill
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                Our Pathskill
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  All Features
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                All Features
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Refund Policy
-                </a>
+              <Link
+                to="#"
+                className="text-indigo-500 hover:text-teal-500 hover:underline"
+              >
+                Refund Policy
               </Link>
             </li>
           </ul>
