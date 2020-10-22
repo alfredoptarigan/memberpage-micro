@@ -1,11 +1,26 @@
 import React from "react";
+import { createBrowserHistory } from "history";
 import "assets/css/style.css";
+import { Router, Route, Switch } from "react-router-dom";
+
+import MemberRoute from "components/Routes/MemberRoute";
+import GuestRoute from "components/Routes/GuestRoute";
+
+import Login from "pages/Login";
+import NotFound from "pages/404";
 
 function App() {
+  const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
   return (
-    <div className="container mx-auto">
-      <h1 className="text-6xl">Hello Alfredo</h1>
-    </div>
+    <>
+      <Router history={history}>
+        <Switch>
+          <GuestRoute path="/login" component={Login}></GuestRoute>
+
+          <Route path="*" component={NotFound}></Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

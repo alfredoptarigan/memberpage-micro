@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.on-light circle,
+.on-dark circle {
+  @apply .fill-orange-500;
+}
+.on-light path {
+  @apply .fill-gray-900;
+}
+.on-dark path {
+  @apply .fill-white;
+}
+
 .modal-close{
     @apply .absolute .right-0 .cursor-pointer .inline-block;
     width:30px;

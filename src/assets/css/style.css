@@ -18825,6 +18825,19 @@ video {
   animation: bounce 1s infinite;
 }
 
+.on-light circle,
+.on-dark circle {
+  fill: #FE721C;
+}
+
+.on-light path {
+  fill: #132B50;
+}
+
+.on-dark path {
+  fill: #fff;
+}
+
 .modal-close{
   position: absolute;
   right: 0;
