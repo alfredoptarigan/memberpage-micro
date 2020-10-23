@@ -9,7 +9,6 @@ const MemberRoute = ({
   ...rest
 }) => {
   const ok = localStorage.getItem("BWAMICRO:token");
-  console.log(rest);
   localStorage.removeItem("BWAMICRO:redirect");
 
   return (
